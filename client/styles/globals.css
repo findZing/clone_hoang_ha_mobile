@@ -1,0 +1,76 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hover-button-navbar::after{
+    background-color: #f7941e;
+    display: block;
+    width: 100%;
+    height: 4px;
+    content: " ";
+    border-radius: 2px;
+  }
+
+  .instagram path{
+    background: transparent linear-gradient(50deg,#fbe18a 0%,#fcbb45 21%,#f75274 38%,#d53692 52%,#8f39ce 74%,#ad63a0 100%) 0% 0% no-repeat !important;
+  }
+
+  .no-scroll-bar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scroll-bar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .content-list::after{
+    content: " ";
+    border-top: 30px solid #00483d;
+    border-left: 30px solid #009981;
+    left: -1px;
+    top: 0;
+    position: absolute;
+  }
+
+  .scroll-bar-location::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .scroll-bar-location::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .scroll-bar-location::-webkit-scrollbar-thumb {
+    background: #00483d; 
+  }
+  
+  .dots-custom {
+    bottom: 10px !important;
+  }
+  /* Handle on hover */
+  /* .scroll-bar-location::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  } */
+}
