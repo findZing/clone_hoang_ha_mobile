@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setOpenModalSearch } from '../../reducers/navBar'
+import { setOpenModalSearch } from '../../reducers/navbar'
 
 const ModalSearch = () => {
     const dispatch = useDispatch()
