@@ -112,7 +112,7 @@ const authController = {
             const refreshToken = authController.generateRefreshToken(user)
 
             await res.cookie('refreshToken', refreshToken, {
-                httpOnly: true,
+                // httpOnly: true,
                 secure: false,
                 path: '/',
                 samSite: "strict"
