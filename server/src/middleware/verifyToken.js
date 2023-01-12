@@ -7,9 +7,10 @@ export const verifyToken = (req, res, next) => {
     const token = req.headers.authorization
     const refreshToken = req.cookies.refreshToken
 
-    // console.log(token)
+    console.log(req.headers.authorization)
     if(token){
         const accessToken = token.split(' ')[1]
+        console.log(accessToken)
         jwt.verify(accessToken, process.env.JWT_ACCESS_TOKEN, (err, user) => {
             if(err) return res.status(200).json({err: 1, msg:'Token is not valid'})
 

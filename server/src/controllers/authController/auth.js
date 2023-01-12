@@ -41,11 +41,11 @@ const authController = {
                 })
             }
 
-            // console.log(user)
+            console.log(user)
             const newAccessToken = authController.generateAccessToken(user);
             const newRefreshToken = authController.generateRefreshToken(user);
             res.cookie("refreshToken", refreshToken, {
-                httpOnly: true,
+                // httpOnly: true,
                 secure: false,
                 path: "/",
                 sameSite: "strict",
