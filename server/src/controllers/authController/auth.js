@@ -29,6 +29,7 @@ const authController = {
 
     requestRefreshToken: async (req, res) => {
         const refreshToken = await req.cookies.refreshToken
+        console.log(req)
         if (!refreshToken) return res.status(200).json({
             err: 1,
             msg: req.cookies
