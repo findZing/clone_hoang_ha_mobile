@@ -46,7 +46,7 @@ const authController = {
             const newAccessToken = authController.generateAccessToken(user);
             const newRefreshToken = authController.generateRefreshToken(user);
             res.cookie("refreshToken", refreshToken, {
-                // httpOnly: true,
+                httpOnly: true,
                 secure: false,
                 path: "/",
                 sameSite: "strict",
@@ -79,7 +79,7 @@ const authController = {
             const refreshToken = authController.generateRefreshToken(saveUser)
 
             res.cookie('refreshToken', refreshToken, {
-                // httpOnly: true,
+                httpOnly: true,
                 secure: false,
                 path: '/',
                 samSite: "strict"
@@ -112,7 +112,7 @@ const authController = {
             const refreshToken = authController.generateRefreshToken(user)
 
             await res.cookie('refreshToken', refreshToken, {
-                // httpOnly: true,
+                httpOnly: true,
                 secure: false,
                 path: '/',
                 samSite: "strict"
