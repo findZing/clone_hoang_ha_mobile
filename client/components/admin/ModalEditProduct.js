@@ -45,7 +45,7 @@ const ModalEditProduct = ({  }) => {
         
         console.log(res)
         if (res.data.err == 1) {
-            res = await axiosConfig()({
+            res = await axiosConfig(token)({
                 method: 'POST',
                 url: 'api/v1/auth/requestrefreshtoken',
             })
@@ -82,7 +82,7 @@ const ModalEditProduct = ({  }) => {
 
         console.log(res)
         if (res.data.err == 1) {
-            const res = await axiosConfig()({
+            const res = await axiosConfig(token)({
                 method: 'POST',
                 url: 'api/v1/auth/requestrefreshtoken',
             })
@@ -114,7 +114,7 @@ const ModalEditProduct = ({  }) => {
         })
 
         if (res.data.err == 1) {
-            const res = await axiosConfig()({
+            const res = await axiosConfig(token)({
                 method: 'POST',
                 url: 'api/v1/auth/requestrefreshtoken',
             })
