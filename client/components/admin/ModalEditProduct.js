@@ -49,7 +49,7 @@ const ModalEditProduct = ({  }) => {
                 method: 'POST',
                 url: 'api/v1/auth/requestrefreshtoken',
             })
-            // console.log(res)
+            console.log(res)
             if (res.data.err == 1) dispatch(setLogOut())
             else if (res.data.err == 0) {
                 dispatch(setToken({ token: res.data.accessToken }))
