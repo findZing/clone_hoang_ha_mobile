@@ -59,7 +59,7 @@ const ModalEditProduct = ({  }) => {
 
             res = await axiosConfig(token)({
                 method: 'POST',
-                url: 'api/v1/product/load',
+                url: 'api/v1/product/add',
                 data: payload
             })
         }
