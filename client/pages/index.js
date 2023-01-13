@@ -149,7 +149,8 @@ export async function getStaticProps() {
       props: {
         err: 0,
         listProduct: data
-      }
+      },
+      revalidate: 10,
     }
 
   } catch (err) {
@@ -157,7 +158,8 @@ export async function getStaticProps() {
       props: {
         err: 1,
         listProduct: []
-      }
+      },
+      revalidate: 10,
     }
   }
 }

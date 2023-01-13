@@ -113,7 +113,8 @@ export const getStaticProps = async (context) => {
                 },
                 productData: res.data.products,
                 err: 0
-            }
+            },
+            revalidate: 10,
         }
       } catch (err) {
         return {

@@ -268,14 +268,16 @@ export const getStaticProps = async (context) => {
             props: {
                 err: 0,
                 data: resProduct.data.product
-            }
+            },
+            revalidate: 10,
         }
     } catch (err) {
         return {
             props: {
                 err: 1,
                 data: [],
-            }
+            },
+            revalidate: 10,
         }
     }
 }
