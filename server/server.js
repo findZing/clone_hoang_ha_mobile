@@ -13,6 +13,13 @@ const app = express()
 // mongoose.connect(process.env.MONGODB_URL, () => {
 //     console.log('connect to MongoDB')
 // })
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', '*')
+  res.setHeader('Access-Control-Allow-Headers', '*')
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  next()
+})
 
 app.use(cors({
     origin: ['http://localhost:3000',   process.env.REACT_APP_CLIENT_URL],
