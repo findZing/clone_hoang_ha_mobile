@@ -44,25 +44,26 @@ const ModalEditProduct = ({  }) => {
         })
         
         console.log(res)
-        if (res.data.err == 1) {
-            res = await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/auth/requestrefreshtoken',
-            })
-            console.log(res)
+        // if (res.data.err == 1) {
+        //     res = await axiosConfig(token)({
+        //         method: 'POST',
+        //         url: 'api/v1/auth/requestrefreshtoken',
+        //     })
+        //     console.log(res)
             if (res.data.err == 1) dispatch(setLogOut())
             else if (res.data.err == 0) {
                 dispatch(setToken({ token: res.data.accessToken }))
                 dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+                res = await axiosConfig(token)({
+                    method: 'POST',
+                    url: 'api/v1/product/add',
+                    data: payload
+                })
             }
 
 
-            res = await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/product/add',
-                data: payload
-            })
-        }
+            
+        // }
         setMessage(res.data.msg)
     }
 
@@ -81,25 +82,26 @@ const ModalEditProduct = ({  }) => {
         })
 
         console.log(res)
-        if (res.data.err == 1) {
-            const res = await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/auth/requestrefreshtoken',
-            })
+        // if (res.data.err == 1) {
+        //     const res = await axiosConfig(token)({
+        //         method: 'POST',
+        //         url: 'api/v1/auth/requestrefreshtoken',
+        //     })
             // console.log(res)
             if (res.data.err == 1) dispatch(setLogOut())
             else if (res.data.err == 0) {
                 dispatch(setToken({ token: res.data.accessToken }))
                 dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+                await axiosConfig(token)({
+                    method: 'POST',
+                    url: 'api/v1/product/update',
+                    data: payload
+                })
             }
 
 
-            await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/product/update',
-                data: payload
-            })
-        }
+            
+        // }
     }
 
     const handleDeleteProduct = async () => {
@@ -113,25 +115,26 @@ const ModalEditProduct = ({  }) => {
             data: payload
         })
 
-        if (res.data.err == 1) {
-            const res = await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/auth/requestrefreshtoken',
-            })
+        // if (res.data.err == 1) {
+        //     const res = await axiosConfig(token)({
+        //         method: 'POST',
+        //         url: 'api/v1/auth/requestrefreshtoken',
+        //     })
             // console.log(res)
             if (res.data.err == 1) dispatch(setLogOut())
             else if (res.data.err == 0) {
                 dispatch(setToken({ token: res.data.accessToken }))
                 dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+                await axiosConfig(token)({
+                    method: 'POST',
+                    url: 'api/v1/product/delete',
+                    data: payload
+                })
             }
 
 
-            await axiosConfig(token)({
-                method: 'POST',
-                url: 'api/v1/product/delete',
-                data: payload
-            })
-        }
+            
+        // }
 
     }
     const showListStore = () => {
