@@ -71,6 +71,7 @@ const ModalEditProduct = ({  }) => {
 
     const handleUpdateProduct = async () => {
         const payload = {
+            _id: product._id,
             name: nameProduct,
             price: priceProduct,
             store: listStore,
