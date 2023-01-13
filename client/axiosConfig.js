@@ -15,7 +15,8 @@ const axiosConfig = (token = null) => {
     instance.interceptors.request.use(function (config) {
         
         config.headers = {
-            authorization: token ? `Bearer ${token}` : ''
+            authorization: token ? `Bearer ${token}` : '',
+            // Cookie: 'cookie1=hello'
         }
         // console.log(config)
         return config

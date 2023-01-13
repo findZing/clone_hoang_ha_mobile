@@ -50,16 +50,16 @@ const ModalEditProduct = ({  }) => {
         //         url: 'api/v1/auth/requestrefreshtoken',
         //     })
         //     console.log(res)
-            if (res.data.err == 1) dispatch(setLogOut())
-            else if (res.data.err == 0) {
-                dispatch(setToken({ token: res.data.accessToken }))
-                dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
-                res = await axiosConfig(token)({
-                    method: 'POST',
-                    url: 'api/v1/product/add',
-                    data: payload
-                })
-            }
+            // if (res.data.err == 1) dispatch(setLogOut())
+            // else if (res.data.err == 0) {
+            //     dispatch(setToken({ token: res.data.accessToken }))
+            //     dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+            //     res = await axiosConfig(token)({
+            //         method: 'POST',
+            //         url: 'api/v1/product/add',
+            //         data: payload
+            //     })
+            // }
 
 
             
@@ -88,16 +88,16 @@ const ModalEditProduct = ({  }) => {
         //         url: 'api/v1/auth/requestrefreshtoken',
         //     })
             // console.log(res)
-            if (res.data.err == 1) dispatch(setLogOut())
-            else if (res.data.err == 0) {
-                dispatch(setToken({ token: res.data.accessToken }))
-                dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
-                await axiosConfig(token)({
-                    method: 'POST',
-                    url: 'api/v1/product/update',
-                    data: payload
-                })
-            }
+            // if (res.data.err == 1) dispatch(setLogOut())
+            // else if (res.data.err == 0) {
+            //     dispatch(setToken({ token: res.data.accessToken }))
+            //     dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+            //     await axiosConfig(token)({
+            //         method: 'POST',
+            //         url: 'api/v1/product/update',
+            //         data: payload
+            //     })
+            // }
 
 
             
@@ -120,17 +120,17 @@ const ModalEditProduct = ({  }) => {
         //         method: 'POST',
         //         url: 'api/v1/auth/requestrefreshtoken',
         //     })
-            // console.log(res)
-            if (res.data.err == 1) dispatch(setLogOut())
-            else if (res.data.err == 0) {
-                dispatch(setToken({ token: res.data.accessToken }))
-                dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
-                await axiosConfig(token)({
-                    method: 'POST',
-                    url: 'api/v1/product/delete',
-                    data: payload
-                })
-            }
+            console.log(res)
+            // if (res.data.err == 1) dispatch(setLogOut())
+            // else if (res.data.err == 0) {
+            //     dispatch(setToken({ token: res.data.accessToken }))
+            //     dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
+            //     await axiosConfig(token)({
+            //         method: 'POST',
+            //         url: 'api/v1/product/delete',
+            //         data: payload
+            //     })
+            // }
 
 
             
