@@ -44,6 +44,8 @@ const ModalEditProduct = ({  }) => {
         })
         
         console.log(res)
+        if (res.data.err == -1 || res.data.err == 1) dispatch(setLogOut())
+
         // if (res.data.err == 1) {
         //     res = await axiosConfig(token)({
         //         method: 'POST',
@@ -82,6 +84,8 @@ const ModalEditProduct = ({  }) => {
         })
 
         console.log(res)
+        if (res.data.err == -1 || res.data.err == 1) dispatch(setLogOut())
+
         // if (res.data.err == 1) {
         //     const res = await axiosConfig(token)({
         //         method: 'POST',
@@ -121,7 +125,7 @@ const ModalEditProduct = ({  }) => {
         //         url: 'api/v1/auth/requestrefreshtoken',
         //     })
             console.log(res)
-            // if (res.data.err == 1) dispatch(setLogOut())
+            if (res.data.err == -1 || res.data.err == 1) dispatch(setLogOut())
             // else if (res.data.err == 0) {
             //     dispatch(setToken({ token: res.data.accessToken }))
             //     dispatch(setRefreshToken({ refreshToken: res.data.refreshToken }))
