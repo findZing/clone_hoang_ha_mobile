@@ -48,6 +48,7 @@ const InputForm = ({ border = false }) => {
     }
 
     const showListResults = () => {
+        console.log(listResult)
         if (listResult.length === 0) return (
             <div className='w-full py-[5px] h-[50px]'>
                 <p>Không có sản phẩm</p>
@@ -86,18 +87,28 @@ const InputForm = ({ border = false }) => {
 
     }
 
-
-    useEffect(() => {
-        console.log(search)
+    const handleSearch = (search) => {
         if (search !== '') {
-            // setListResult([])
+            setListResult([])
             dispatch(setOpenModalSearch({ open: true }))
             fetchData()
         }
         else {
             setListResult([])
         }
-    }, [search])
+    }
+
+    // useEffect(() => {
+    //     console.log(search)
+    //     if (search !== '') {
+    //         // setListResult([])
+    //         dispatch(setOpenModalSearch({ open: true }))
+    //         fetchData()
+    //     }
+    //     else {
+    //         setListResult([])
+    //     }
+    // }, [search])
 
     return (
         <div className={`max-w-[669px] w-full h-[40px]  bg-white rounded-[20px] px-[10px] py-[5px] relative z-30 ${border ? 'border border-gray-300' : 'drop-shadow-primary'}`}>
@@ -106,7 +117,7 @@ const InputForm = ({ border = false }) => {
                 className='focus:outline-none w-full h-full text-[14px] font-[500]'
                 placeholder='Hôm nay bạn cần tìm gì?'
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {setSearch(e.target.value), handleSearch(e.target.value)}}
             />
             <button className='w-[42px] h-[42px] py-[6px] bg-primary rounded-[17px] absolute right-[8px] bottom-[8px] bg-gradient-to-b from-[#00917a] to-[#00483d] flex justify-center items-center'>
                 <HiSearch color='white' size={20} />
