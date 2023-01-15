@@ -14,8 +14,8 @@ import { setOpenModalSearch } from '../../reducers/navbar'
 
 const InputForm = ({ border = false }) => {
     const dispatch = useDispatch()
-    const { openModalSearch } = useSelector(state => state.navbar)
-
+    // const { openModalSearch } = useSelector(state => state.navbar)
+    const [open, setOpen] = useState(false)
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
     const [listResult, setListResult] = useState([])
@@ -77,7 +77,7 @@ const InputForm = ({ border = false }) => {
 
             console.log(res.data.products)
             setLoading(false)
-            setListResult(res.data.products)
+            setListResult([...res.data.products])
 
         }
         catch (err) {
@@ -90,25 +90,28 @@ const InputForm = ({ border = false }) => {
     const handleSearch = (search) => {
         if (search !== '') {
             setListResult([])
-            dispatch(setOpenModalSearch({ open: true }))
+            setSearch(search); 
             fetchData()
+            // dispatch(setOpenModalSearch({ open: true }))
+            setOpen(true)
         }
         else {
             setListResult([])
         }
     }
 
-    // useEffect(() => {
-    //     console.log(search)
-    //     if (search !== '') {
-    //         // setListResult([])
-    //         dispatch(setOpenModalSearch({ open: true }))
-    //         fetchData()
-    //     }
-    //     else {
-    //         setListResult([])
-    //     }
-    // }, [search])
+    useEffect(() => {
+        console.log(search)
+        if (search !== '') {
+            setListResult([])
+            // dispatch(setOpenModalSearch({ open: true }))
+            setOpen(true)
+            fetchData()
+        }
+        else {
+            setListResult([])
+        }
+    }, [search])
 
     return (
         <div className={`max-w-[669px] w-full h-[40px]  bg-white rounded-[20px] px-[10px] py-[5px] relative z-30 ${border ? 'border border-gray-300' : 'drop-shadow-primary'}`}>
@@ -117,13 +120,13 @@ const InputForm = ({ border = false }) => {
                 className='focus:outline-none w-full h-full text-[14px] font-[500]'
                 placeholder='Hôm nay bạn cần tìm gì?'
                 value={search}
-                onChange={(e) => {setSearch(e.target.value), handleSearch(e.target.value)}}
+                onChange={(e) => {setSearch(e.target.value)}}
             />
             <button className='w-[42px] h-[42px] py-[6px] bg-primary rounded-[17px] absolute right-[8px] bottom-[8px] bg-gradient-to-b from-[#00917a] to-[#00483d] flex justify-center items-center'>
                 <HiSearch color='white' size={20} />
             </button>
 
-            {openModalSearch && (
+            {open && (
                 <div className={`absolute top-[120%] left-0 right-0 bg-white rounded-[8px] flex flex-col items-center px-[20px] ${listResult.length > 6 && 'h-[500px] overflow-y-auto scroll-bar-location'}`}>
                     {showListResults()}
                 </div>
