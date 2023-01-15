@@ -113,7 +113,7 @@ const InputForm = ({ border = false }) => {
             </button>
 
             {openModalSearch && (
-                <div className='absolute top-[120%] left-0 right-0 bg-white rounded-[8px] flex flex-col items-center px-[20px]'>
+                <div className={`absolute top-[120%] left-0 right-0 bg-white rounded-[8px] flex flex-col items-center px-[20px] ${listResult.length > 6 && 'h-[500px] overflow-y-auto scroll-bar-location'}`}>
                     {showListResults()}
                 </div>
             )}

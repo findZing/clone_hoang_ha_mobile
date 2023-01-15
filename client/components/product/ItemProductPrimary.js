@@ -11,8 +11,8 @@ const ItemProductPrimary = ({ product }) => {
                 alt='img'
             />
 
-            <div className='flex flex-col items-center mt-[8px] mb-[20px]'>
-                <p className='text-[13px] font-[700] text-center'>{product.name}</p>
+            <div className='w-full flex flex-col items-center mt-[8px] mb-[20px]'>
+                <p className='text-[13px] font-[700] text-center break-all'>{product.name}</p>
                 <p className='text-[16px] text-price font-[700]'>{product.price} <span className='underline'>đ</span></p>
             </div>
 
