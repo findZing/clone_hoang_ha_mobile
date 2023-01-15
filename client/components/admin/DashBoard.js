@@ -4,6 +4,9 @@ import Image from 'next/image'
 import {HiMenu} from 'react-icons/hi'
 
 import { useSelector } from 'react-redux'
+import {useDispatch} from 'react-redux'
+import {setLogOut} from '../../reducers/admin/auth'
+
 import MenuDashBoard from './MenuDashBoard'
 import TabProduct from './TabProduct'
 import TabPoster from './TabPoster'
@@ -15,13 +18,14 @@ import ModalEditProduct from './ModalEditProduct'
 import axiosConfig from '../../axiosConfig'
 
 const DashBoard = () => {
+    const dispatch = useDispatch()
     const { changeWidth } = useSelector(state => state.app)
     const {selectedTabIndex} = useSelector(state => state.dashboard)
     const {open} = useSelector(state => state.modaleditproduct)
 
     const [showMenu, setShowMenu] = useState(false)
     const [listProduct, setListProduct] = useState([])
-
+    const [showBtnMenu, setShowBtnMenu] = useState(false)
     useEffect(() => {
         if(changeWidth >= 900) setShowMenu(false)
     }, [changeWidth])
@@ -68,7 +72,7 @@ const DashBoard = () => {
                 <div className={`${changeWidth >= 900 ? 'left-[300px] justify-end' : 'left-0 justify-between'} fixed z-20 top-0 right-0 h-[50px] border-b border-gray-400 flex flex-row px-[20px] items-center bg-white`}>
                     {changeWidth < 900 && <HiMenu size={30} className='cursor-pointer' onClick={() => setShowMenu(state => !state)}/>}
 
-                    <div className='w-[30px] h-[30px] rounded-[50%] border border-gray-400 cursor-pointer'>
+                    <div className='w-[30px] h-[30px] rounded-[50%] border border-gray-400 cursor-pointer relative' onClick={() => {setShowBtnMenu(state => !state)}}>
                         <Image
                             alt='img'
                             width={30}
@@ -76,6 +80,10 @@ const DashBoard = () => {
                             src={avatarNone}
                             className='w-full h-full object-contain rounded-[50%]'
                         />
+
+                        {showBtnMenu && (<div className='absolute top-[150%] right-0 bg-white p-[10px] rounded-[8px] drop-shadow-primary'>
+                            <button onClick={() => {dispatch(setLogOut())}}>Logout</button>
+                        </div>)}
                     </div>
                 </div>
                 <div className='bg-window-dashboard mt-[50px] py-[20px] h-full'>
