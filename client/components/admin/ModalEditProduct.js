@@ -145,7 +145,7 @@ const ModalEditProduct = ({  }) => {
     const showListStore = () => {
         return listStore.length > 0 && listStore.map((store, index) => {
             return (
-                <div key={index} className='w-[50px] h-[20px] rounded-[20px] relative border border-gray-400 px-[5px]'>
+                <div key={index} className='h-[20px] rounded-[20px] relative border border-gray-400 px-[5px]'>
                     <p className='text-[11px]'>{store}</p>
                     <CiCircleRemove size={15} className='absolute top-[-4px] right-[-4px] cursor-pointer' onClick={() => { setListStore(state => { let array = [...state]; console.log('remove', index); array.splice(index, 1); return array }) }} />
 

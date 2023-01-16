@@ -54,8 +54,8 @@ const CartPage = () => {
                             className='object-contain'
                         />
 
-                        <p className='text-[13px] font-[700]'>{item.product.name}</p>
-                        <strong className='text-[13px] text-price'>{item.product.price} <span className='underline'>đ</span></strong>
+                        <p className='text-[13px] font-[700] break-all'>{item.product.name}</p>
+                        <strong className='text-[16px] text-price'>{item.product.price} <span className='underline'>đ</span></strong>
 
                         <p className='text-[11px] text-[#888888]'>Số lượng</p>
                         <ControlAmount item={item} />
