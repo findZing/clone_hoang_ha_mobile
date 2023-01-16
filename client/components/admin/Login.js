@@ -35,7 +35,7 @@ const Login = () => {
     return (
         <div className='w-[400px] bg-white rounded-[16px] border-gray-400 border-[1px] flex flex-col items-center p-[15px] gap-[15px]'>
             <h2 className='text-[25px] font-bold'>Login</h2>
-
+            <p className='text-[13px] italic'>(Admin: Tk:1, Mk:1)</p>
             <InputForm value={email} setValue={setEmail} placeholder='Enter your email' type='text' />
             <InputForm value={password} setValue={setPassword} placeholder='Enter your password' type='password' />
 
