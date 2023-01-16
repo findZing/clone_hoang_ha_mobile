@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Slider from 'react-slick';
@@ -116,6 +116,15 @@ function ImageCarousel({}) {
             }
         }
     }
+
+    useEffect(() => {
+        const repeat = setInterval(() => {
+            // handleSwipe('left')
+            handleClickNext()
+        }, 2000)
+
+        return () => clearInterval(repeat)
+    })
 
     return (
         <div className='max-w-window w-full relative mb-[10px] flex flex-col items-center'>
